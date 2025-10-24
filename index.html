@@ -24,6 +24,12 @@
         .client_card img { max-height: 60px; max-width: 100%; object-fit: contain; }
         .clients_title { text-align: center; margin-bottom: 1.25rem; }
         @media (min-width: 768px) { .client_card { height: 90px; } .client_card img { max-height:70px; } }
+        .home_container img#homeCake {
+    width: 100%;         /* keep full width of container */
+    max-height: 400px;   /* fixed max height */
+    object-fit: cover;   /* crop if needed but keep container size */
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -79,33 +85,25 @@
     <main class="main">
         <!--==================== HOME ====================-->
         <section class="home section" id="home">
-            <div class="home_container container grid">
-                <img src="assets/img/home-img.png" alt="chocolate cake" class="home_img">
-
-                <div class="home_data">
-                    <h1 class="home_title">
-                        Enjoy Delicious
-
-                        <div>
-                            <img src="assets/img/small-cake-img.png" alt="home image">
-                            Cake and Tea
-                        </div>
-                    </h1>
-
-                    <p class="home_description">
-                        Enjoy a good cake with the best tea in the world 
-                        and improve your day.
-                    </p>
-
-                    <a href="https://chat.whatsapp.com/LnHdERiVjIA8hRWzpE8b2P" target="_blank" class="button">
-                        Order Now <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <img src="assets/img/leaf-branch-2.png" alt="home image" class="home_leaf-1">
-            <img src="assets/img/leaf-branch-4.png" alt="home image" class="home_leaf-2">
-        </section>
+  <div class="home_container container grid">
+    <img id="homeCake" src="assets/img/home-img.png" alt="chocolate cake">
+    <div class="home_data">
+      <h1 class="home_title">
+        Enjoy Delicious
+        <div>
+          <img src="assets/img/small-cake-img.png" alt="home image">
+          Pastry Foodsss
+        </div>
+      </h1>
+      <p class="home_description">
+        Enjoy a good cake with the best tea in the world and improve your day.
+      </p>
+      <a href="https://chat.whatsapp.com/LnHdERiVjIA8hRWzpE8b2P" target="_blank" class="button">
+        Order Now <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+  </div>
+</section>
 
         <!--==================== ABOUT ====================-->
         <section class="about section" id="about">
@@ -320,5 +318,24 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script>
+// List of images to alternate
+const images = [
+  "assets/img/home-img.png",
+  "assets/img/3.jpeg",
+  "assets/img/4.jpeg",
+  "assets/img/1.jpeg",
+  "assets/img/5.jpeg"
+];
+
+let index = 0;
+const cakeImg = document.getElementById('homeCake');
+
+setInterval(() => {
+  index = (index + 1) % images.length;
+  cakeImg.src = images[index];
+}, 2000); // 2s per image
+
+</script>
 </body>
 </html>
